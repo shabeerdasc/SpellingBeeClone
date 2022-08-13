@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class LetterButton extends StatefulWidget {
-  final List<String> letters;
+  final List letters;
   final TextEditingController controller;
   final Function? delete;
   final Function? onSubmit;
+  final Function? shuffle;
   final double buttonSize = 80;
   final Color buttonColor = const Color(0xffe6e6e6);
   const LetterButton({
@@ -13,6 +14,7 @@ class LetterButton extends StatefulWidget {
     required this.controller,
     required this.delete,
     required this.onSubmit,
+    required this.shuffle,
   }) : super(key: key);
 
   @override
@@ -37,7 +39,7 @@ class _LetterButtonState extends State<LetterButton> {
                     height: widget.buttonSize / 2,
                   ),
                   HexButton(
-                    char: widget.letters[0],
+                    char: widget.letters[1],
                     size: widget.buttonSize,
                     color: widget.buttonColor,
                     controller: widget.controller,
@@ -46,7 +48,7 @@ class _LetterButtonState extends State<LetterButton> {
                     height: 10.0,
                   ),
                   HexButton(
-                    char: widget.letters[1],
+                    char: widget.letters[2],
                     size: widget.buttonSize,
                     color: widget.buttonColor,
                     controller: widget.controller,
@@ -60,7 +62,7 @@ class _LetterButtonState extends State<LetterButton> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   HexButton(
-                    char: widget.letters[2],
+                    char: widget.letters[3],
                     size: widget.buttonSize,
                     color: widget.buttonColor,
                     controller: widget.controller,
@@ -69,7 +71,7 @@ class _LetterButtonState extends State<LetterButton> {
                     height: 10.0,
                   ),
                   HexButton(
-                    char: widget.letters[3],
+                    char: widget.letters[0],
                     size: widget.buttonSize,
                     color: const Color(0xfff7da21),
                     controller: widget.controller,
@@ -140,7 +142,7 @@ class _LetterButtonState extends State<LetterButton> {
                 width: 5,
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () => widget.shuffle!(),
                 shape: const CircleBorder(),
                 color: Colors.white,
                 child: const Icon(
@@ -152,7 +154,7 @@ class _LetterButtonState extends State<LetterButton> {
                 width: 5,
               ),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () => widget.onSubmit!(),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
                   shape: RoundedRectangleBorder(
