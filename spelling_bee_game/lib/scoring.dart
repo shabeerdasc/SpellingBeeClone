@@ -94,39 +94,35 @@ class ScoreWidget extends StatefulWidget {
 class _ScoreWidgetState extends State<ScoreWidget> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 50,
       width: double.infinity,
-      child: Container(
-        padding:
-            const EdgeInsets.only(top: 15, bottom: 10, left: 10, right: 10),
-        child: Row(
-          children: [
-            Text(
-              widget.state,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      child: Row(
+        children: [
+          Text(
+            widget.state,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 10),
-              //padding: const EdgeInsets.all(4),
-              alignment: Alignment.center,
-              height: 30,
-              width: 30,
-
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: nytYellow,
-              ),
-              child: Text(
-                widget.score.toString(),
-                style: const TextStyle(fontSize: 15),
-              ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 10),
+            //padding: const EdgeInsets.all(4),
+            alignment: Alignment.center,
+            height: 37,
+            width: 37,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: nytYellow,
             ),
-          ],
-        ),
+            child: Text(
+              widget.score.toString(),
+              style: const TextStyle(fontSize: 15),
+            ),
+          ),
+        ],
       ),
     );
   }

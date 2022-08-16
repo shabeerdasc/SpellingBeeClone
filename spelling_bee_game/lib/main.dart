@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_bee_game/scorewidget.dart';
 import 'package:spelling_bee_game/start_page.dart';
 import 'homepage.dart';
 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "Spelling Bee",
       debugShowCheckedModeBanner: false,
-      home: MenuPage(),
+      //home: MenuPage(),
+      home: ScoreAdder(),
     );
   }
 }

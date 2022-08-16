@@ -9,7 +9,7 @@ class LetterButton extends StatefulWidget {
   final Function? onSubmit;
   final Function? shuffle;
   final double buttonSize = 80;
-  final Color buttonColor = const Color(0xffe6e6e6);
+  final Color buttonColor = nytGrey;
   const LetterButton({
     Key? key,
     required this.letters,
