@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_bee_game/utils/colors.dart';
+import 'package:spelling_bee_game/utils/constants.dart';
 
 class LetterButton extends StatefulWidget {
   final List letters;
@@ -73,7 +75,7 @@ class _LetterButtonState extends State<LetterButton> {
                   HexButton(
                     char: widget.letters[0],
                     size: widget.buttonSize,
-                    color: const Color(0xfff7da21),
+                    color: nytYellow,
                     controller: widget.controller,
                   ),
                   const SizedBox(
@@ -245,11 +247,11 @@ class Hexpainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     var path = Path()
-      ..moveTo(size.width * 0.22583, 0)
-      ..lineTo(size.width * 0.77417, 0)
+      ..moveTo(size.width * hexFactor1, 0)
+      ..lineTo(size.width * hexFactor2, 0)
       ..lineTo(size.width, size.height * 0.5)
-      ..lineTo(size.width * 0.77417, size.height)
-      ..lineTo(size.width * 0.22583, size.height)
+      ..lineTo(size.width * hexFactor2, size.height)
+      ..lineTo(size.width * hexFactor1, size.height)
       ..lineTo(0, size.height * 0.5)
       ..close();
 
