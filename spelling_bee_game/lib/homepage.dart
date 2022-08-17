@@ -66,7 +66,9 @@ class _HomepageState extends State<Homepage> {
       setState(() {
         _foundWords.add(word.capitalize());
         score += 7 + word.length;
-        int percent = _score.percentScore(_letters.join().toLowerCase(), score);
+        //int percent = _score.percentScore(_letters.join().toLowerCase(), score);
+        int percent = _score.percentScore(
+            _letters.join().toLowerCase(), _foundWords.length);
         state = _score.states[percent];
       });
     } else if (allWords.contains(word) &&
@@ -76,7 +78,9 @@ class _HomepageState extends State<Homepage> {
       setState(() {
         _foundWords.add(word.capitalize());
         score += word.length == 4 ? 1 : word.length;
-        int percent = _score.percentScore(_letters.join().toLowerCase(), score);
+        //int percent = _score.percentScore(_letters.join().toLowerCase(), score);
+        int percent = _score.percentScore(
+            _letters.join().toLowerCase(), _foundWords.length);
         state = _score.states[percent];
       });
     } else {
@@ -258,6 +262,18 @@ class _HomepageState extends State<Homepage> {
           Future.delayed(const Duration(milliseconds: 800), () {
             Navigator.of(context).pop(true);
           });
+          // return Container(
+          //   margin: const EdgeInsets.only(
+          //       top: 100, left: 300, right: 300, bottom: 400),
+          //   //height: 30,
+          //   //width: 70,
+          //   color: Colors.transparent,
+          //   alignment: Alignment.center,
+          //   child: const DefaultTextStyle(
+          //     style: TextStyle(color: Colors.white, fontSize: 30),
+          //     child: Text("hello"),
+          //   ),
+          // );
           return Dialog(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),

@@ -15,8 +15,20 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "Spelling Bee",
       debugShowCheckedModeBanner: false,
-      //home: MenuPage(),
-      home: ScoreAdder(),
+      home: MenuPage(),
+      // home: ScoreAdder(
+      //   levelList: [
+      //     true,
+      //     false,
+      //     false,
+      //     false,
+      //     false,
+      //     false,
+      //     false,
+      //     false,
+      //     false
+      //   ],
+      // ),
     );
   }
 }

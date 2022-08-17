@@ -3,21 +3,34 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/foundation/key.dart';
+import 'package:spelling_bee_game/scorewidget.dart';
 import 'package:spelling_bee_game/words.dart';
 import 'utils/colors.dart';
 
 class Scoring {
   Map states = {
     0: 'Beginner',
-    2: 'Good Start',
-    7: 'Moving Up',
+    1: 'Good Start',
+    5: 'Moving Up',
     10: 'Good',
     20: 'Solid',
     35: 'Nice',
     55: 'Great',
     70: 'Amazing',
     90: 'Genius',
-    100: 'Queen Bee'
+    //100: 'Queen Bee'
+  };
+  static Map statesMap = {
+    'Beginner': 0,
+    'Good Start': 1,
+    'Moving Up': 2,
+    'Good': 3,
+    'Solid': 4,
+    'Nice': 5,
+    'Great': 6,
+    'Amazing': 7,
+    'Genius': 8,
+    //100: 'Queen Bee'
   };
 
   Map messages = {4: 'Good!', 5: 'Nice!', 6: 'Nice', 7: 'Awesome!'};
@@ -43,14 +56,17 @@ class Scoring {
     for (String w in possibleWords) {
       if (isPanagram(w, letters.toLowerCase().split(''))) {
         score += 7 + w.length;
+      } else if (w.length == 4) {
+        score += 1;
       } else {
         score += w.length;
       }
     }
-    return score;
+    return possibleWords.length;
   }
 
   int percentScore(String letters, int score) {
+    //int max = maxScore(letters);
     int max = maxScore(letters);
     int percent = ((score / max) * 100).floor();
     int mappedPercent = 0;
@@ -92,8 +108,21 @@ class ScoreWidget extends StatefulWidget {
 }
 
 class _ScoreWidgetState extends State<ScoreWidget> {
+  List levels = [false, false, false, false, false, false, false, false, false];
+  @override
+  void initState() {
+    int index = Scoring.statesMap[widget.state];
+    levels[index] = true;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    int index = Scoring.statesMap[widget.state];
+    levels[index] = true;
+    if (index > 0) {
+      levels[index - 1] = false;
+    }
     return Container(
       height: 50,
       width: double.infinity,
@@ -107,21 +136,25 @@ class _ScoreWidgetState extends State<ScoreWidget> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(left: 10),
-            //padding: const EdgeInsets.all(4),
-            alignment: Alignment.center,
-            height: 37,
-            width: 37,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: nytYellow,
-            ),
-            child: Text(
-              widget.score.toString(),
-              style: const TextStyle(fontSize: 15),
-            ),
-          ),
+          ScoreAdder(
+            levelList: levels,
+            score: widget.score,
+          )
+          // Container(
+          //   margin: const EdgeInsets.only(left: 10),
+          //   //padding: const EdgeInsets.all(4),
+          //   alignment: Alignment.center,
+          //   height: 37,
+          //   width: 37,
+          //   decoration: const BoxDecoration(
+          //     shape: BoxShape.circle,
+          //     color: nytYellow,
+          //   ),
+          //   child: Text(
+          //     widget.score.toString(),
+          //     style: const TextStyle(fontSize: 15),
+          //   ),
+          // ),
         ],
       ),
     );

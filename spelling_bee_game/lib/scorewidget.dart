@@ -5,50 +5,49 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:spelling_bee_game/utils/colors.dart';
 
 class ScoreAdder extends StatefulWidget {
-  const ScoreAdder({Key? key}) : super(key: key);
+  final List levelList;
+  final int score;
+  const ScoreAdder({Key? key, required this.levelList, required this.score})
+      : super(key: key);
 
   @override
   State<ScoreAdder> createState() => _ScoreAdderState();
 }
 
 class _ScoreAdderState extends State<ScoreAdder> {
-  bool isOn = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: 70,
-          width: double.infinity,
-          //color: Colors.red,
-          padding: const EdgeInsets.all(10),
-          child: Row(
-            children: [
-              circleNumber(),
-              horizontalLine(),
-              isOn ? greyCircle() : circleNumber(),
-              horizontalLine(),
-              circleNumber(),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            if (isOn) {
-              isOn = false;
-            } else {
-              isOn = true;
-            }
-          });
-        },
+    return Container(
+      height: 70,
+      //width: double.infinity,
+      //color: Colors.red,
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        children: [
+          widget.levelList[0] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[1] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[2] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[3] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[4] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[5] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[6] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[7] ? circleNumber(widget.score) : greyCircle(),
+          horizontalLine(),
+          widget.levelList[8] ? circleNumber(widget.score) : greyCircle(),
+        ],
       ),
     );
   }
 }
 
-Widget circleNumber() {
+Widget circleNumber(int number) {
   return Container(
     alignment: Alignment.center,
     height: 37,
@@ -57,9 +56,9 @@ Widget circleNumber() {
       shape: BoxShape.circle,
       color: nytYellow,
     ),
-    child: const Text(
-      "23",
-      style: TextStyle(fontSize: 15),
+    child: Text(
+      "$number",
+      style: const TextStyle(fontSize: 15),
     ),
   );
 }
@@ -67,15 +66,15 @@ Widget circleNumber() {
 Widget horizontalLine() {
   return Container(
     height: 1,
-    width: 30,
+    width: 25,
     color: nytGrey,
   );
 }
 
 Widget greyCircle() {
   return Container(
-    height: 9,
-    width: 9,
+    height: 8,
+    width: 8,
     decoration: const BoxDecoration(
       shape: BoxShape.circle,
       color: nytGrey,
