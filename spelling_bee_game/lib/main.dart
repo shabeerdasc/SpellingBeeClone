@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spelling_bee_game/scorewidget.dart';
 import 'package:spelling_bee_game/start_page.dart';
-import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,10 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:spelling_bee_game/letter_setting.dart';
 import 'package:spelling_bee_game/scoring.dart';
 import 'package:spelling_bee_game/utils/colors.dart';
-import 'package:spelling_bee_game/utils/constants.dart';
 import 'package:spelling_bee_game/words.dart';
 import './letter_hex.dart';
 
@@ -19,27 +17,24 @@ class _HomepageState extends State<Homepage> {
   final TextEditingController mycontroller = TextEditingController();
   final Scoring _score = Scoring();
   //final List<String> _letterList = allLetters;
-  List _letters = initialList;
+  List _letters = [];
   final List<String> _foundWords = [];
   int score = 0;
   late String state = _score.states[0];
 
   @override
   void initState() {
+    super.initState();
     Random random = Random();
     int randomNumber = random.nextInt(16600);
     String val = scrambleLetters[randomNumber];
     _letters = val.toUpperCase().split('');
-    // _letterList.shuffle();
-    // _letters = _letterList.sublist(0, 7);
-    // DateTime now = DateTime.now();
-    // DateTime date = DateTime(now.year, now.month, now.day);
-    // if (yesterday.toString() != date.toString()) {
-    //   yesterday = date.toString();
-    //   setting();
-    // }
+  }
 
-    super.initState();
+  @override
+  void dispose() {
+    mycontroller.dispose();
+    super.dispose();
   }
 
   void _shuffle() {
@@ -116,41 +111,6 @@ class _HomepageState extends State<Homepage> {
                 letters: _letters.join().toLowerCase(),
                 state: state,
               ),
-              // SizedBox(
-              //   height: 50,
-              //   width: double.infinity,
-              //   child: Container(
-              //     padding: const EdgeInsets.only(
-              //         top: 15, bottom: 10, left: 10, right: 10),
-              //     child: Row(
-              //       children: [
-              //         Text(
-              //           "Beginner",
-              //           style: TextStyle(
-              //             fontSize: 18,
-              //             fontWeight: FontWeight.bold,
-              //           ),
-              //         ),
-              //         Container(
-              //           margin: const EdgeInsets.only(left: 10),
-              //           //padding: const EdgeInsets.all(4),
-              //           alignment: Alignment.center,
-              //           height: 30,
-              //           width: 30,
-
-              //           decoration: const BoxDecoration(
-              //             shape: BoxShape.circle,
-              //             color: nytYellow,
-              //           ),
-              //           child: Text(
-              //             score.toString(),
-              //             style: const TextStyle(fontSize: 15),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               _foundWords.isNotEmpty
                   ? SizedBox(
                       height: 60,
@@ -262,18 +222,6 @@ class _HomepageState extends State<Homepage> {
           Future.delayed(const Duration(milliseconds: 800), () {
             Navigator.of(context).pop(true);
           });
-          // return Container(
-          //   margin: const EdgeInsets.only(
-          //       top: 100, left: 300, right: 300, bottom: 400),
-          //   //height: 30,
-          //   //width: 70,
-          //   color: Colors.transparent,
-          //   alignment: Alignment.center,
-          //   child: const DefaultTextStyle(
-          //     style: TextStyle(color: Colors.white, fontSize: 30),
-          //     child: Text("hello"),
-          //   ),
-          // );
           return Dialog(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),

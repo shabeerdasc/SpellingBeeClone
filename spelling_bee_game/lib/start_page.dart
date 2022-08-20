@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spelling_bee_game/letter_setting.dart';
+
 import 'package:spelling_bee_game/utils/colors.dart';
+import 'package:spelling_bee_game/words.dart';
 import 'homepage.dart';
-import 'utils/constants.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -12,15 +12,10 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   @override
-  // void initState() {
-  //   DateTime now = DateTime.now();
-  //   DateTime date = DateTime(now.year, now.month, now.day);
-  //   if (yesterday.toString() != date.toString()) {
-  //     yesterday = date.toString();
-  //     setting();
-  //   }
-  //   super.initState();
-  // }
+  void initState() {
+    super.initState();
+    String a = allWords[1];
+  }
 
   @override
   Widget build(BuildContext context) {

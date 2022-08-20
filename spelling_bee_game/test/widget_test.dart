@@ -7,8 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:spelling_bee_game/main.dart';
 import 'package:spelling_bee_game/start_page.dart';
 
 void main() {
