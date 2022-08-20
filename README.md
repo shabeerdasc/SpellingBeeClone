@@ -3,8 +3,7 @@ NYT SpellingBee Clone using Flutter
 A clone of popular NYT game [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)
 
 #### Screenshots:
-<a href="url"><img src="http://url.to/image.png](https://github.com/shabeerdasc/SpellingBeeClone/blob/master/screenshots/start_page.jpg" align="left" height="800" width="600" ></a>
-![alt text](https://github.com/shabeerdasc/SpellingBeeClone/blob/master/screenshots/start_page.jpg)
-![alt text](https://github.com/shabeerdasc/SpellingBeeClone/blob/master/screenshots/game_page1.jpg) 
-![alt text](https://github.com/shabeerdasc/SpellingBeeClone/blob/master/screenshots/game_page2.jpg)
+<a href="url"><img src="./screenshots/start_page.jpg" height="400" width="180" ></a>
+<a href="url"><img src="./screenshots/game_page1.jpg" height="400" width="180" ></a>
+<a href="url"><img src="./screenshots/game_page2.jpg" height="400" width="180" ></a>
 
