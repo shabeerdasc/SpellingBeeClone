@@ -1,6 +1,6 @@
-## NYT SpellingBee Clone using Flutter
+NYT SpellingBee Clone using Flutter
 ------
-A clone of popular NYT game [Spelling Bee](https://www.google.com)
+A clone of popular NYT game [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)
 
 #### Screenshots:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/shabeerdasc/SpellingBeeClone/blob/master/screenshots/game_page1.jpg)
